@@ -1,0 +1,36 @@
+    .cloud_services_bg{
+        background-color: #0c1014;
+    }
+    .grid-container {
+        display: grid;
+        gap: 10px;
+        padding: 10px;
+    }
+    .grid-item {
+        border: 1px solid #ccc;
+        padding: 20px;
+        text-align: left;
+        background-color: #121212;
+        border-radius: calc(0.5 * 4rem);
+        width: 70%;
+        margin: 0 auto;
+        color: wheat;
+    }
+
+    /* Por defecto, 1 columna */
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+    /* Para pantallas de mínimo 600px de ancho, 2 columnas */
+    @media (min-width: 600px) {
+        .grid-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    /* Para pantallas de mínimo 900px de ancho, 3 columnas */
+    @media (min-width: 900px) {
+        .grid-container {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }

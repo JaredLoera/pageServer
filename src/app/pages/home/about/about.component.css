@@ -1,0 +1,11 @@
+.about_section{
+    margin-left: 70px; 
+    margin-right: 70px;
+ 
+}
+@media all and (max-width: 768px){
+    .about_section{
+        margin-left: 20px; 
+        margin-right: 20px;
+    }
+}

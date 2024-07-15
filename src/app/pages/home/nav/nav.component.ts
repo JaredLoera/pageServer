@@ -5,7 +5,7 @@ import { Component,HostListener } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './nav.component.html',
-  styleUrl: './nav.component.css'
+  styleUrls: ['./nav.component.css','../main-home/main-home.component.css']
 })
 export class NavComponent {
   navbarOpen = false;

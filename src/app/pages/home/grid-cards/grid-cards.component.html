@@ -1,0 +1,11 @@
+
+<div id="team_bg">
+    <div class="container_team flow-content">
+        <h2 class="section-title mt-3">Nuestro equipito</h2>
+        <ul role="list" class="grid">
+            <li *ngFor="let user of users">
+               <app-card [name]="user.name" [desc]="user.desc" [imgUrl]="user.imgUrl"></app-card>
+            </li>
+        </ul>  
+    </div>
+</div>

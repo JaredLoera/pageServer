@@ -1,0 +1,47 @@
+.card {
+    display: grid;
+    gap: 0.5rem;
+    
+    position: relative;
+    overflow: hidden;
+    
+    width: min(100% - 3rem, 35ch);
+    margin-inline: auto;
+    border-radius: 0.5rem;
+    
+    background-color: #101b29;
+    text-align: center;
+    height: 230px;
+  }
+  
+  .card__name {
+    font-weight: 700;
+    color: #fff;
+  }
+  
+  .card__position {
+    font-style: italic;
+    color: #ccc;
+  }
+  
+  .card__img {
+    width: 5rem;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .card__front {
+    padding: 2em 2em 2.5em 2em;
+    transition: 
+      opacity 250ms ease,
+      transform 450ms ease;
+  }
+  
+  .card__footer {
+    position: relative;
+    height: 1.5rem;
+    background-color: #0d1a2d;
+    z-index: 5;
+  }
+ 
