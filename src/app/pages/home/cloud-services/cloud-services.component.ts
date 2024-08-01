@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './cloud-services.component.html',
-  styleUrl: './cloud-services.component.css'
+  styleUrls:['./cloud-services.component.css','../main-home/main-home.component.css']
 })
 export class CloudServicesComponent {
 

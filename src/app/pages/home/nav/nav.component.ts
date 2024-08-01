@@ -1,13 +1,29 @@
-import { Component,HostListener } from '@angular/core';
+import { Component,HostListener , OnInit} from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { AuthService } from '../../../services/auth.service';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [],
+  imports: [
+    RouterModule,
+    NgIf
+  ],
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css','../main-home/main-home.component.css']
 })
-export class NavComponent {
+export class NavComponent implements OnInit {
+  isloged: boolean;
+  constructor(private authService:AuthService){
+    this.isloged = this.authService.isAuthenticated();
+  }
+  ngOnInit(): void {
+    console.log(this.authService.getToken())
+    console.log(this.isloged)
+  }
+
+
   navbarOpen = false;
   isAffixed = false;
   toggleNavbar(){

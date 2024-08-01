@@ -1,48 +1,224 @@
 <style>
-    .cloud_services_bg{
-        background-color: #0c1014;
-    }
-        .grid-container {
-            display: grid;
-            gap: 10px;
-            padding: 10px;
+        .cloud_services_bg{
+            background-color: #0c1014;
         }
+        
         .grid-item {
             border: 1px solid #ccc;
             padding: 20px;
             text-align: left;
             background-color: #121212;
             border-radius: calc(0.5 * 4rem);
-            width: 70%;
+            width: 80%;
+            color: white;
             margin: 0 auto;
-            color: wheat;
-        }
 
-        /* Por defecto, 1 columna */
+        }
+        .online-status {
+            animation: border-online-animation 8s infinite linear;
+        }
+        .maintenance-status{
+            animation: border-maintenance-animation 8s infinite linear;
+        }
+        .offline-status{
+            animation: border-offline-animation 8s infinite linear;
+        }
         .grid-container {
             grid-template-columns: 1fr;
         }
-        /* Para pantallas de mínimo 600px de ancho, 2 columnas */
+       
         @media (min-width: 600px) {
             .grid-container {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, .8fr);
+            }
+        }
+        @media (min-width: 900px) {
+            .grid-container {
+               grid-template-columns: repeat(auto-fill, minmax(300px, .8fr));
+            }
+        }
+        /*ANIMACION*/
+            @keyframes border-online-animation {
+            0% {
+                border-color: rgb(79, 86, 79);
+            }
+            14% {
+                border-color: rgb(143, 237, 143);
+                border-width: .66px;
+            }
+            28% {
+                border-color: rgb(94, 194, 94);
+                border-width: 1.3px;
+            }
+            42% {
+                border-color: rgb(84, 194, 84);
+                border-width: 1.99px;
+            }
+            56% {
+                border-color: lime;
+                border-width: 2px;
+            }
+            70% {
+                border-color: rgb(84, 194, 84);
+                border-width: 1.99px;
+            }
+            84% {
+                border-color: rgb(94, 194, 94);
+                border-width: 1.3px;
+            }
+            98% {
+                border-color: rgb(143, 237, 143);
+                border-width: .66px;
+            }
+            100% {
+                border-color: rgb(79, 86, 79);
+            }
+        }
+        @keyframes border-maintenance-animation {
+            0% {
+                border-color: rgb(141, 130, 119);
+            }
+            14% {
+                border-color: rgb(182, 140, 94);
+                border-width: .66px;
+            }
+            28% {
+                border-color: rgb(197, 159, 117);
+                border-width: 1.3px;
+            }
+            42% {
+                border-color: rgb(221, 163, 100);
+                border-width: 1.99px;
+            }
+            56% {
+                border-color: rgb(237, 148, 59);
+                border-width: 2px;
+            }
+            70% {
+                border-color: rgb(221, 163, 100);
+                border-width: 1.99px;
+            }
+            84% {
+                border-color: rgb(197, 159, 117);
+                border-width: 1.3px;
+            }
+            98% {
+                border-color: rgb(182, 140, 94);
+                border-width: .66px;
+            }
+            100% {
+                border-color: rgb(141, 130, 119);
             }
         }
 
-        /* Para pantallas de mínimo 900px de ancho, 3 columnas */
-        @media (min-width: 900px) {
-            .grid-container {
-                grid-template-columns: repeat(3, 1fr);
+        @keyframes border-offline-animation {
+            0% {
+                border-color: rgb(133, 109, 109);
+            }
+            14% {
+                border-color: rgb(182, 94, 94);
+                border-width: .66px;
+            }
+            28% {
+                border-color: rgb(197, 117, 117);
+                border-width: 1.3px;
+            }
+            42% {
+                border-color: rgb(221, 100, 100);
+                border-width: 1.99px;
+            }
+            56% {
+                border-color: rgb(237, 59, 59);
+                border-width: 2px;
+            }
+            70% {
+                border-color: rgb(221, 100, 100);
+                border-width: 1.99px;
+            }
+            84% {
+                border-color: rgb(197, 117, 117);
+                border-width: 1.3px;
+            }
+            98% {
+                border-color: rgb(182, 94, 94);
+                border-width: .66px;
+            }
+            100% {
+                border-color: rgb(133, 109, 109);
             }
         }
-        
+  .container_cloud_service {
+    width: min(100% - 2rem, 65rem);
+    margin-inline: auto;
+    font-family: "Quicksand", sans-serif;
+  }
+  
+  .grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 
+      repeat(3, 1fr);
+      margin-bottom: 75px;
+  }
+  
+  .section-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    text-align: center;
+    font-weight: bold;
+    color: #ccc;
+    margin-bottom: 0.5em;
+  }
+
+  
+@media all and (max-width:700px){
+    .grid {
+        display: grid;
+        gap: 5rem;
+        grid-template-columns: 
+          repeat(auto-fit, minmax(min(50ch, 100%), 3fr));
+      }
+}
+  
+  .flex-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  
+  .flow-content {
+    display: grid;
+    align-content: start;
+    gap: 1rem;
+  }
+
 </style>
-    <div class="cloud_services_bg">
-        <h1>Servicios en la nube</h1>
-        <div class="grid-container">
-        <div class="grid-item">
-            <p>Servicio</p>
-            <p>Status</p>
-            <p>Puerto</p>
+
+   
+<div class="cloud_services_bg">
+    <div class="container_cloud_service flow-content">
+        <h2 class="section-title mt-3">Nuestros servidores</h2>
+        <div class="grid">
+            <div class="grid-item online-status">
+                <p>Servicio: Minecraft</p>
+                <p>Nombre: Crushnose</p>
+                <p>Status: online</p>
+                <p>Puerto: 25565</p>
+            </div>
+            <div class="grid-item offline-status">
+                <p>Servicio: Minecraft</p>
+                <p>Nombre: Crushnose</p>
+                <p>Status: online</p>
+                <p>Puerto: 25565</p>
+            </div>
+            <div class="grid-item maintenance-status">
+                <p>Servicio: Minecraft</p>
+                <p>Nombre: Crushnose</p>
+                <p>Status: online</p>
+                <p>Puerto: 25565</p>
+            </div>
+            
         </div>
+        
     </div>
+</div>
