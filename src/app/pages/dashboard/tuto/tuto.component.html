@@ -1,5 +1,36 @@
-<p>tuto works!</p>
+<nav class="navbar">
+    <div class="navbar-container">
+      <!-- Centro -->
+      <div class="navbar-center">
+        <input
+          type="text"
+          placeholder="Buscar..."
+          (keydown)="onKeyDown($event)"
+        />
+      </div>
+    </div>
+  </nav>
+  <a routerLink="1">  
+    <div class="question-container">
+    <div class="details">
+        <img src="https://e7.pngegg.com/pngimages/764/304/png-clipart-laravel-black-logo-tech-companies-thumbnail.png" alt="Laravel Logo" class="logo-tutorial">
+    </div>
+    <div class="question">
+        <p>¿Subir proyecto laravel?</p>
+        <div class="tags">
+            <span class="tag">php</span>
+            <span class="tag">html</span>
+            <span class="tag">html5</span>
+        </div>
+    </div>
+    <div class="votes">
+        <span>1 voto</span>
+        <span>2k vistas</span>
+    </div>
+</div>
+</a>
+<button mat-fab color="primary" class="floating-button" (click)="showModal = true">
+    <i class="bi bi-plus"></i>
+  </button>
 
-Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem ea asperiores deserunt cumque est odit nulla, voluptatum vero nam, reiciendis temporibus, accusamus accusantium. Sint reiciendis voluptatibus optio! Tempore, quaerat sint.
-
-mdiowamowimdownwdoanwdo
+  <app-add-tutorial-modal  *ngIf="showModal" (close)="showModal = false"></app-add-tutorial-modal>

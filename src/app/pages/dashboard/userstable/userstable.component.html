@@ -1,3 +1,46 @@
-<p>userstable works!</p>
-user tbale
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore eum non dolorum sint reiciendis fugit voluptas natus distinctio nisi mollitia, ad voluptate animi, voluptatibus explicabo beatae illum, exercitationem vel molestiae!
+<div>
+    <h1>Tabla de usuarios</h1>
+    <p>Esta es la tabla de usuarios</p>
+</div>
+<div>
+    <button>Agregar usuario</button>
+</div>
+<div>
+    <input type="text" placeholder="Buscar usuario">
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Nombre completo</th>
+            <th>Correo</th>
+            <th>Tipo usuario</th>
+            <th>Mostrar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>
+                <ng-container *ngIf="user.fullName; else noName">
+                    {{user.fullName}}
+                </ng-container>
+                <ng-template #noName>
+                    <p>No hay nombre</p>
+                </ng-template>
+            </td>
+            <td>{{user.email}}</td>
+            <td>
+             <select name="selecttipuser" id="selecttipuser">
+                <option *ngFor="let rol of rols">{{rol.name}}</option>
+             </select>
+            </td>
+            <td>   
+            <ng-container *ngIf="user.showProfile; else notShow">
+                <input type="checkbox" name="actdes" id="actdes" checked>
+            </ng-container>
+            <ng-template #notShow>
+                <input type="checkbox" name="actdes" id="actdes">
+            </ng-template>
+        </td>
+        </tr>
+    </tbody>
+</table>

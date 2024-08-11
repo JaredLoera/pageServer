@@ -1,0 +1,25 @@
+table {
+    border-collapse: collapse;
+    width: 95%;
+    margin: 20px auto;
+    background-color: #444;
+    color: #fff;
+    text-align: left;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+th, td {
+    padding: 12px;
+    border: 1px solid #555;
+}
+th {
+    background-color: #555;
+}
+tr:nth-child(even) {
+    background-color: #555;
+}
+tr:nth-child(odd) {
+    background-color: #444;
+}
+tr:hover {
+    background-color: #666;
+}

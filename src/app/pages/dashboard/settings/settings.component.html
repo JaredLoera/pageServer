@@ -1,0 +1,27 @@
+<div class="profile-container">
+  <h1>Informacion basica</h1>
+  <p>Alguna de esta informacion puede ser publicada dentro de la pagina</p>
+  <div class="profile-info">
+    <div class="profile-picture">
+      <div class="picture-placeholder">J</div>
+      <button>Añadir tu imagen de usuario</button>
+    </div>
+    <div class="info-item" *ngFor="let item of userInfo" [ngClass]="{'expanded': item.isEditing}">
+      <label>{{item.label}}</label>
+      <div class="info-value-container"  (click)="toggleEdit(item.key)">
+        <div class="info-value">{{item.value}}</div>
+        <div class="info-toggle">
+          <i class="bi" [ngClass]="{'bi-chevron-down': !item.isEditing, 'bi-chevron-up': item.isEditing}"></i>
+        </div>
+      </div>
+      <div class="edit-container" *ngIf="item.isEditing">
+        <input *ngIf="item.type !== 'checkbox'" [(ngModel)]="item.value" />
+        <input *ngIf="item.type === 'checkbox'" type="checkbox" [(ngModel)]="item.value" />
+        <button (click)="saveEdit(item.key)">Guardar</button>
+      </div>
+    </div>
+  </div>
+  <div class="buttons-container">
+    <button (click)="saveAll()">Guardar cambios</button>
+  </div>
+</div>

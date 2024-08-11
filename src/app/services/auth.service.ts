@@ -27,9 +27,13 @@ export class AuthService {
     return null;
   }
   logout() {
+   this.http.get(this.baseUrl + "logout",{headers:{Authorization:`Bearer${this.getToken()}`}})
     localStorage.removeItem('token')
   }
   isAuthenticated(): boolean {
+    if (typeof localStorage === 'undefined') {
+      return false
+    }
     return localStorage.getItem('token') ? true : false
   }
 }

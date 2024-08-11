@@ -1,5 +1,4 @@
-@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
-@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
 .fa-2x {
     font-size: 2em;
@@ -22,7 +21,6 @@ nav.main-menu.expanded {
 
 .main-menu {
     background: #212121;
-    border-right: 1px solid #e5e5e5;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -30,6 +28,7 @@ nav.main-menu.expanded {
     left: 0;
     width: 60px;
     overflow: hidden;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     -webkit-transition: width 0.05s linear;
     transition: width 0.05s linear;
     --webkit-transform: translateZ(0) scale(1, 1);
@@ -52,7 +51,6 @@ nav.main-menu.expanded {
     border-collapse: collapse;
     border-spacing: 0;
     color: #999;
-    font-family: arial;
     font-size: 14px;
     text-decoration: none;
     --webkit-transform: translateZ(0) scale(1, 1);
@@ -75,13 +73,18 @@ nav.main-menu.expanded {
     display: table-cell;
     vertical-align: middle;
     width: 190px;
-    font-family: 'Titillium Web', sans-serif;
 }
 
 .main-menu > ul.logout {
     position: absolute;
     left: 0;
     bottom: 0;
+}
+.main-menu > ul.settings {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin-bottom: 40px;
 }
 
 .no-touch .scrollable.hover {
@@ -131,13 +134,4 @@ nav.main-menu li.active > a,
     background: #e2e2e2;
     width: 100%;
     height: 100%;
-}
-
-@font-face {
-    font-family: 'Titillium Web';
-    font-style: normal;
-    font-weight: 300;
-    src: local('Titillium WebLight'), local('TitilliumWeb-Light'),
-        url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff)
-            format('woff');
 }

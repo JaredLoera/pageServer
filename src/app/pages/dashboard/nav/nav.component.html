@@ -2,65 +2,42 @@
 <nav class="main-menu">
     <ul>
         <li>
-            <a routerLink="tutoriales">
-                <i class="fa fa-home fa-2x"></i>
-                <span class="nav-text">Community Dashboard</span>
+            <a routerLink="/home">
+                <i class="fa bi-house fa-2x"></i>
+                <span class="nav-text">Inicio</span>
             </a>
         </li>
         <li class="has-subnav">
-            <a routerLink="userstable">
-                <i class="fa fa-globe fa-2x"></i>
-                <span class="nav-text">Global Surveyors</span>
+            <a routerLink="users">
+                <i class="fa bi-people fa-2x"></i>
+                <span class="nav-text">Tabla de usuarios</span>
             </a>
         </li>
         <li class="has-subnav">
-            <a href="#">
-                <i class="fa fa-comments fa-2x"></i>
-                <span class="nav-text">Group Hub Forums</span>
+            <a routerLink="minecraft">
+                <i class="fa bi-box fa-2x"></i>
+                <span class="nav-text">Minecraft</span>
             </a>
         </li>
         <li class="has-subnav">
-            <a href="#">
-                <i class="fa fa-camera-retro fa-2x"></i>
-                <span class="nav-text">Survey Photos</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class="fa fa-film fa-2x"></i>
-                <span class="nav-text">Surveying Tutorials</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class="fa fa-book fa-2x"></i>
-                <span class="nav-text">Surveying Jobs</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class="fa fa-cogs fa-2x"></i>
-                <span class="nav-text">Tools & Resources</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class="fa fa-map-marker fa-2x"></i>
-                <span class="nav-text">Member Map</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class="fa fa-info fa-2x"></i>
-                <span class="nav-text">Documentation</span>
+            <a routerLink="tutorial">
+                <i class="fa bi-bar-chart-steps fa-2x"></i>
+                <span class="nav-text">Tutoriales</span>
             </a>
         </li>
     </ul>
-
+    <ul class="settings">
+        <li>
+            <a routerLink="settings">
+                <i class="fa bi-gear fa-2x"></i>
+                <span class="nav-text">Configuración</span>
+            </a>
+        </li>
+    </ul>
     <ul class="logout">
         <li>
             <a (click)="closesession()">
-                <i class="fa fa-power-off fa-2x"></i>
+                <i class="fa bi-box-arrow-right fa-2x"></i>
                 <span class="nav-text">Logout</span>
             </a>
         </li>
