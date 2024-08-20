@@ -1,0 +1,12 @@
+{
+  "routes": [
+    "/",
+    "/dashboard",
+    "/dashboard/minecraft",
+    "/dashboard/settings",
+    "/dashboard/tutorial",
+    "/dashboard/users",
+    "/home",
+    "/login"
+  ]
+}
