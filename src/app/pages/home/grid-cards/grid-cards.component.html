@@ -4,7 +4,7 @@
         <h2 class="section-title mt-3">Nuestro equipito</h2>
         <ul role="list" class="grid">
             <li *ngFor="let user of users">
-               <app-card [name]="user.name" [desc]="user.desc" [imgUrl]="user.imgUrl"></app-card>
+               <app-card [name]="user.fullName!" [desc]="user.description!" [imgUrl]="user.linkavatar!"></app-card>
             </li>
         </ul>  
     </div>

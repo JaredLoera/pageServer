@@ -1,0 +1,132 @@
+/* Estilos del fondo */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+  }
+  
+  /* Estilos del contenido del modal */
+  .modal-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 0.3rem;
+    width: 700px;
+    max-width: 90%;
+    z-index: 1050;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    height: 300px;
+  }
+  
+  /* Estilos del encabezado */
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .modal-title {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+  
+  /* Estilos del cuerpo */
+  .modal-body {
+    padding: 1rem;
+  }
+  
+  /* Estilos del pie */
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.75rem;
+    border-top: 1px solid #dee2e6;
+  }
+  
+  .modal-footer .btn {
+    margin-left: 0.5rem;
+  }
+  
+  /* Estilos del botón de cierre */
+  .close {
+    border: none;
+    background: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: #000;
+    opacity: 0.5;
+    cursor: pointer;
+  }
+  
+  .close:hover {
+    opacity: 0.75;
+  }
+
+  .zone {
+    margin: auto;
+    background-color: rgb(111, 64, 154);
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: white;
+    z-index: 20;
+    border-radius: 15px;
+  }
+  
+ 
+  
+
+  .zone i {
+    text-align: center;
+    font-size: 10em;
+    color: #fff;
+    margin-top: 80px;
+  }
+  
+  .zone .selectFile {
+    height: 50px;
+    margin: 20px auto;
+    position: relative;
+    width: 200px;
+  }
+  
+  .zone label,
+  .zone input {
+    cursor: pointer;
+    display: block;
+    height: 50px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    border-radius: 5px;
+  }
+  
+  .zone label {
+    background: #fff;
+    color: #000000;
+    display: inline-block;
+    font-size: 1em;
+    line-height: 50px;
+    padding: 0;
+    text-align: center;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+  
+  .zone input[type="file"] {
+    opacity: 0;
+  }
+  
+
+
+ 

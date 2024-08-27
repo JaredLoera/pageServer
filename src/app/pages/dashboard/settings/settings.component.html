@@ -1,27 +1,48 @@
-<div class="profile-container">
-  <h1>Informacion basica</h1>
-  <p>Alguna de esta informacion puede ser publicada dentro de la pagina</p>
-  <div class="profile-info">
-    <div class="profile-picture">
-      <div class="picture-placeholder">J</div>
-      <button>Añadir tu imagen de usuario</button>
-    </div>
-    <div class="info-item" *ngFor="let item of userInfo" [ngClass]="{'expanded': item.isEditing}">
-      <label>{{item.label}}</label>
-      <div class="info-value-container"  (click)="toggleEdit(item.key)">
-        <div class="info-value">{{item.value}}</div>
-        <div class="info-toggle">
-          <i class="bi" [ngClass]="{'bi-chevron-down': !item.isEditing, 'bi-chevron-up': item.isEditing}"></i>
+<div class="wrapper">
+  <form   #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <div class="right">
+    <h2>Profile Settings</h2>
+    @if (user.linkavatar) {
+      <img (click)="changeimg()" class="avatar" src="http://localhost:3333/avatars/{{user.linkavatar}}" alt="">
+
+    }
+    @else {
+      <img (click)="changeimg()" class="avatar" src="http://res.cloudinary.com/dikpupfzu/image/upload/v1525474876/profile_avatar.png" alt="">
+    }
+    <h3>Edit Picture</h3>
+    <div class="form">
+      <div class="field">
+        <label for="fullName">Nombre</label>
+        <input class="fullName" type="text" name="fullName" [(ngModel)]="user.fullName" />
         </div>
-      </div>
-      <div class="edit-container" *ngIf="item.isEditing">
-        <input *ngIf="item.type !== 'checkbox'" [(ngModel)]="item.value" />
-        <input *ngIf="item.type === 'checkbox'" type="checkbox" [(ngModel)]="item.value" />
-        <button (click)="saveEdit(item.key)">Guardar</button>
-      </div>
+        
+        <div class="field">
+          <label for="email">Email</label>
+          <input class="email" type="text" name="email" [(ngModel)]="user.email" />
+        </div>
+        
+        <div class="field">
+          <label for="description">Descripción</label>
+          <input class="description" type="text" name="description" [(ngModel)]="user.description" />
+        </div>
+        
+        <div class="field">
+          <label for="linkedin">LinkedIn</label>
+          <input class="linkedin" type="text" name="linkedin" [(ngModel)]="user.linkedin" />
+        </div>
+        
+        <div class="field">
+          <label for="github">GitHub</label>
+          <input class="github" type="text" name="github" [(ngModel)]="user.github" />
+        </div>
+  
+    </div>
+    <div class="bottom">
+      <a href="#"><button class="button_left" type="submit" name="button">Save Changes</button></a>
+      <a href="#"><button class="button_right" type="cancel" name="button">Cancel</button></a>
     </div>
   </div>
-  <div class="buttons-container">
-    <button (click)="saveAll()">Guardar cambios</button>
-  </div>
+</form>
 </div>
+
+<app-imgsave *ngIf="showModal" (close)="showModal = false"></app-imgsave>

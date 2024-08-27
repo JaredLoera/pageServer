@@ -13,16 +13,12 @@ import { NgIf } from '@angular/common';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css','../main-home/main-home.component.css']
 })
-export class NavComponent implements OnInit {
+export class NavComponent {
   isloged: boolean;
   constructor(private authService:AuthService){
     this.isloged = this.authService.isAuthenticated();
   }
-  ngOnInit(): void {
-    console.log(this.authService.getToken())
-    console.log(this.isloged)
-  }
-
+  
 
   navbarOpen = false;
   isAffixed = false;

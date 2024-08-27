@@ -35,7 +35,6 @@ export class MainLoginComponent {
   }
   
   submitlogin(){
-    console.log(this.userForm.value);
     this.user = this.userForm.value;
     this.authService.login(this.user).subscribe((token:Token)=>{
       this.authService.setToken(token);

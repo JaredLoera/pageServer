@@ -23,7 +23,6 @@ export class TutoComponent {
   onKeyDown(event: KeyboardEvent): void {
     const input = (event.target as HTMLInputElement).value;
     if (event.key === 'Enter') {
-      console.log('Buscar:', input);
       
     }
   }

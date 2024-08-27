@@ -1,0 +1,29 @@
+<div class="modal-backdrop" (click)="closeModal()"></div>
+<div class="modal-content">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" enctype="multipart/form-data"> <!-- Asociar el evento ngSubmit -->
+    <div class="modal-header">
+      <h5 class="modal-title">Selecciona tu imagen</h5>
+      <button type="button" class="close" (click)="closeModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="zone">
+        <div id="dropZ">
+          <i *ngIf="!fileSelected" class="fa fa-cloud-upload"></i>
+          <i *ngIf="fileSelected" class="fa fa-check-circle"></i> <!-- Cambia el ícono al seleccionar un archivo -->
+          <div *ngIf="!fileSelected">Arrastra tu archivo aquí</div>
+          <span *ngIf="!fileSelected">O</span>
+          <div class="selectFile" *ngIf="!fileSelected">
+            <label for="file">Selecciona el archivo</label>
+            <input type="file" formControlName="avatar" (change)="onFileSelected($event)">
+          </div>
+          <p *ngIf="!fileSelected">Límite de tamaño de archivo: 10 MB</p>
+          <p *ngIf="fileSelected">{{ fileName }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
+      <button type="submit" class="btn btn-primary">Guardar cambios</button>
+    </div>
+  </form>
+</div>
