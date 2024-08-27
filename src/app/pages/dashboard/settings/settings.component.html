@@ -3,11 +3,11 @@
   <div class="right">
     <h2>Profile Settings</h2>
     @if (user.linkavatar) {
-      <img (click)="changeimg()" class="avatar" src="http://localhost:3333/avatars/{{user.linkavatar}}" alt="">
+      <img (click)="changeimg()" class="avatar" src="https://servertorreon.ddns.net/avatars/{{user.linkavatar}}" alt="">
 
     }
     @else {
-      <img (click)="changeimg()" class="avatar" src="http://res.cloudinary.com/dikpupfzu/image/upload/v1525474876/profile_avatar.png" alt="">
+      <img (click)="changeimg()" class="avatar" src="https://res.cloudinary.com/dikpupfzu/image/upload/v1525474876/profile_avatar.png" alt="">
     }
     <h3>Edit Picture</h3>
     <div class="form">
