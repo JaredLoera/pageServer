@@ -1,5 +1,5 @@
 export const API_CONFIG = {
-    baseUrl: 'https://localhost:3333/',
+    baseUrl: 'https://servertorreon.ddns.net/api/',
   };
 
   export const environment = {
