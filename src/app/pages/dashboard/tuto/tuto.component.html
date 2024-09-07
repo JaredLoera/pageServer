@@ -1,60 +1,39 @@
 <nav class="navbar">
-    <div class="navbar-container">
-      <!-- Centro -->
-      <div class="navbar-center">
-        <input
-          type="text"
-          placeholder="Buscar..."
-          (keydown)="onKeyDown($event)"
-        />
-      </div>
+  <div class="navbar-container">
+    <!-- Centro -->
+    <div class="navbar-center">
+      <input type="text" placeholder="Buscar..." (keydown)="onKeyDown($event)" />
     </div>
-  </nav>
-  <div class="scroll-container">
-    <a routerLink="1">  
-      <div class="question-container">
-      <div class="details">
-          <img src="https://e7.pngegg.com/pngimages/764/304/png-clipart-laravel-black-logo-tech-companies-thumbnail.png" alt="Laravel Logo" class="logo-tutorial">
-      </div>
-      <div class="question">
-          <p>Esto va ser el apartado de los tutoriales</p>
-          <div class="tags">
-              <span class="tag">php</span>
-              <span class="tag">html</span>
-              <span class="tag">html5</span>
+  </div>
+</nav>
+<div class="scroll-container">
+  <div *ngFor="let tutorial of tutorials">
+    <div>
+      <a routerLink="{{tutorial.uniqueId}}">
+        <div class="question-container">
+          <div class="details">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwAwMN0qzVunS-y-eAXA7eGCJx05ZVH-KxlQ&s"
+              alt="Laravel Logo" class="logo-tutorial">
           </div>
-      </div>
-      <div class="votes">
-          <span>1 voto</span>
-          <span>2 vistas</span>
-      </div>
-  </div>
-  </a>
-    <div *ngFor="let tutorial of tutorials">
-      <div>
-        <a routerLink="{{tutorial.uniqueId}}">  
-            <div class="question-container">
-            <div class="details">
-                <img src="https://e7.pngegg.com/pngimages/764/304/png-clipart-laravel-black-logo-tech-companies-thumbnail.png" alt="Laravel Logo" class="logo-tutorial">
+          <div class="question">
+            <p class="font">{{tutorial.title}}</p>
+            <div class="tags">
+              <span class="tag" *ngFor="let tag of tutorial.tags">{{tag.name}}</span>
             </div>
-            <div class="question">
-                <p>{{tutorial.title}}</p>
-                <div class="tags" *ngFor="let tag of tutorial.tags">
-                    <span class="tag">{{tag.name}}</span>
-                </div>
-            </div>
-            <div class="votes">
-                <span>1 voto</span>
-                <span>2 vistas</span>
-            </div>
+          </div>
+          <div class="votes">
+            <span>1 voto</span>
+            <span>2 vistas</span>
+          </div>
         </div>
-        </a>
-      </div>
+      </a>
     </div>
-    
   </div>
-  <button mat-fab color="primary" class="floating-button" (click)="showModal = true">
-    <i class="bi bi-plus"></i>
-  </button>
-
-  <app-add-tutorial-modal  *ngIf="showModal" (close)="showModal = false"></app-add-tutorial-modal>
+</div>
+@if (user?.rolId == 1) {
+<button mat-fab color="primary" class="floating-button" (click)="showModal = true">
+  <i class="bi bi-plus"></i>
+</button>
+<app-add-tutorial-modal *ngIf="showModal" (close)="showModal = false"></app-add-tutorial-modal>
+}
