@@ -8,11 +8,19 @@
             </a>
         </li>
         <li class="has-subnav">
+            <a routerLink="/dashboard">
+                <i class="fa bi-window fa-2x"></i>
+                <span class="nav-text">Dashboard</span>
+            </a>
+        </li>
+       @if (user?.rolId == 1) {
+        <li class="has-subnav">
             <a routerLink="users">
                 <i class="fa bi-people fa-2x"></i>
                 <span class="nav-text">Tabla de usuarios</span>
             </a>
         </li>
+       } 
         <li class="has-subnav">
             <a routerLink="minecraft">
                 <i class="fa bi-box fa-2x"></i>
@@ -23,6 +31,12 @@
             <a routerLink="tutorial">
                 <i class="fa bi-bar-chart-steps fa-2x"></i>
                 <span class="nav-text">Tutoriales</span>
+            </a>
+        </li>
+        <li>
+            <a routerLink="documents">
+                <i class="fa bi-file-earmark-pdf fa-2x"></i>
+                <span class="nav-text">Documentos</span>
             </a>
         </li>
     </ul>

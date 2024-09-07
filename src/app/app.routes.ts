@@ -13,6 +13,10 @@ import { MainDashboardComponent } from './pages/dashboard/main-dashboard/main-da
 import { MinecraftComponent } from './pages/dashboard/minecraft/minecraft.component';
 import { ExampleComponent } from './pages/dashboard/example/example.component';
 import { authGuard } from './guard/auth.guard';
+import { rolGuard } from './guard/rol.guard';
+import { DashboardComponent } from './pages/dashboard/dashboard/dashboard.component';
+import { DocumentsComponent } from './pages/dashboard/documents/documents.component';
+import { VisorComponent } from './pages/dashboard/visor/visor.component';
 
 export const routes: Routes = [
     {path: '', component: MainHomeComponent,children:[
@@ -22,11 +26,14 @@ export const routes: Routes = [
         component: MainDashboardComponent, 
         canActivate: [authGuard],
         children: [
+            {path: '', component:DashboardComponent, pathMatch: 'full'}, 
             {path: 'tutorial', component: TutoComponent},
-            {path: 'users', component: UserstableComponent},
+            {path: 'users', component: UserstableComponent,canActivate: [rolGuard]},
             {path: 'settings', component: SettingsComponent},
             {path: 'minecraft', component: MinecraftComponent},
-            {path:'tutorial/:id', component: ExampleComponent}
+            {path:'tutorial/:id', component: ExampleComponent},
+            {path: 'documents', component: DocumentsComponent },
+            {path: 'visor/:id', component: VisorComponent}
        ] 
     },
     {path: 'login', component:MainLoginComponent , loadChildren:()=>LoginModule, canActivate: [islogGuard]},

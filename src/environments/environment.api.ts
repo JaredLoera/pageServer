@@ -3,6 +3,6 @@ export const API_CONFIG = {
   };
 
   export const environment = {
-    production: true,
-    apiUrl: 'https://api.ejemplo.com'
+    apiUrl: 'http://localhost:3333/api/'
   };
+ 

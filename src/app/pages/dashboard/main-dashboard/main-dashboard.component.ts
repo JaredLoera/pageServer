@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavComponent } from '../nav/nav.component';
 import { RouterOutlet } from '@angular/router';
 
@@ -13,6 +13,6 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './main-dashboard.component.html',
   styleUrl: './main-dashboard.component.css'
 })
-export class MainDashboardComponent {
+export class MainDashboardComponent  {
 
 }

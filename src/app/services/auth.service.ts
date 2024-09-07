@@ -38,4 +38,21 @@ export class AuthService {
     }
     return localStorage.getItem('token') ? true : false
   }
+  setProfile(user: User): void {
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('user', JSON.stringify(user))
+    }
+  }
+  getProfile(): User|null  {
+    if (typeof localStorage !== 'undefined') {
+      const user = localStorage.getItem('user');
+      return user ? JSON.parse(user) : null;
+    }
+    return null;
+  }
+  removeProfile(): void {
+    if (typeof localStorage !== 'undefined') {
+      localStorage.removeItem('user')
+    }
+  }
 }

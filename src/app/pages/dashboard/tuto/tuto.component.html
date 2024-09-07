@@ -10,29 +10,50 @@
       </div>
     </div>
   </nav>
-
-  <div>
+  <div class="scroll-container">
     <a routerLink="1">  
-        <div class="question-container">
-        <div class="details">
-            <img src="https://e7.pngegg.com/pngimages/764/304/png-clipart-laravel-black-logo-tech-companies-thumbnail.png" alt="Laravel Logo" class="logo-tutorial">
-        </div>
-        <div class="question">
-            <p>¿Subir proyecto laravel?</p>
-            <div class="tags">
-                <span class="tag">php</span>
-                <span class="tag">html</span>
-                <span class="tag">html5</span>
+      <div class="question-container">
+      <div class="details">
+          <img src="https://e7.pngegg.com/pngimages/764/304/png-clipart-laravel-black-logo-tech-companies-thumbnail.png" alt="Laravel Logo" class="logo-tutorial">
+      </div>
+      <div class="question">
+          <p>Esto va ser el apartado de los tutoriales</p>
+          <div class="tags">
+              <span class="tag">php</span>
+              <span class="tag">html</span>
+              <span class="tag">html5</span>
+          </div>
+      </div>
+      <div class="votes">
+          <span>1 voto</span>
+          <span>2 vistas</span>
+      </div>
+  </div>
+  </a>
+    <div *ngFor="let tutorial of tutorials">
+      <div>
+        <a routerLink="{{tutorial.uniqueId}}">  
+            <div class="question-container">
+            <div class="details">
+                <img src="https://e7.pngegg.com/pngimages/764/304/png-clipart-laravel-black-logo-tech-companies-thumbnail.png" alt="Laravel Logo" class="logo-tutorial">
+            </div>
+            <div class="question">
+                <p>{{tutorial.title}}</p>
+                <div class="tags" *ngFor="let tag of tutorial.tags">
+                    <span class="tag">{{tag.name}}</span>
+                </div>
+            </div>
+            <div class="votes">
+                <span>1 voto</span>
+                <span>2 vistas</span>
             </div>
         </div>
-        <div class="votes">
-            <span>1 voto</span>
-            <span>2 vistas</span>
-        </div>
+        </a>
+      </div>
     </div>
-    </a>
+    
   </div>
-<button mat-fab color="primary" class="floating-button" (click)="showModal = true">
+  <button mat-fab color="primary" class="floating-button" (click)="showModal = true">
     <i class="bi bi-plus"></i>
   </button>
 

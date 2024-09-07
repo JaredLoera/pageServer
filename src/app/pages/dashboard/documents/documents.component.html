@@ -1,0 +1,25 @@
+<div class="wrapper">
+    <header class="page-header">
+        <nav>
+            <h2 class="logo">CodeLag</h2>
+            <ul>
+            </ul>
+        </nav>
+    </header>
+    <div class="row">
+        <div class="card">
+            <h1>Documentos </h1>
+        </div>
+    </div>
+    <div class="grid-container">
+        <div class="grid-item" *ngFor="let document of documents">
+       <a routerLink="/dashboard/visor/{{document.uniqueName}}">  
+        <div class="file-icon">
+            <i class="bi bi-file-earmark-pdf"></i>
+          </div>
+          <div class="file-name">
+            {{ document.name }}
+          </div></a> 
+        </div>
+      </div>
+</div>

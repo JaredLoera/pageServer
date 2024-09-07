@@ -1,0 +1,36 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin-left: -15px;
+    background-image: linear-gradient(rgb(28, 0, 61), rgb(80, 0, 61));
+  }
+  
+.wrapper > * {
+    padding: 30px;
+  }
+  .logo{
+    width: 100px;
+    height: 100px;
+    margin-left: 10px;
+    color: #d3d3d3;
+    font-size: 30px;
+}
+.page-header nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    margin-top: -30px;
+  }
+  
+  .page-header ul {
+    display: flex;
+    order: 1;
+    width: 100%;
+  }
+  
+  .page-header ul li:not(:last-child) {
+    padding-right: 15px;
+  }

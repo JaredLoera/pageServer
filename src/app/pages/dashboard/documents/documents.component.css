@@ -1,0 +1,90 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin-left: -15px;
+    background-image: linear-gradient(rgb(28, 0, 61), rgb(80, 0, 61));
+  }
+  
+.wrapper > * {
+    padding: 30px;
+  }
+.logo{
+    width: 100px;
+    height: 100px;
+    margin-left: 10px;
+    color: #d3d3d3;
+    font-size: 30px;
+}
+.card {
+    color: #d3d3d3;
+    background-color: #392860;
+    border-radius: 30px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    height: 60px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+}
+
+
+.page-header nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    margin-top: -30px;
+  }
+  
+  .page-header ul {
+    display: flex;
+    order: 1;
+    width: 100%;
+  }
+  
+  .page-header ul li:not(:last-child) {
+    padding-right: 15px;
+  }
+
+  .container-docs{
+    height: calc(100vh - 70px); /* Ajusta 70px al tamaño de tu navbar */
+    overflow-y: auto;
+
+    box-sizing: border-box;
+}
+  .grid-container {
+    height: calc(85vh - 70px); /* Ajusta 70px al tamaño de tu navbar */
+    overflow-y: auto;
+    margin-top: -30px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    padding: 16px;
+  }
+  
+  .grid-item {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    text-align: center;
+    padding: 16px;
+    background-color: #f5f5f5;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 250px;  /* Ajusta este valor según sea necesario */
+    max-height: 100px; /* Ajusta este valor según sea necesario */
+  }
+  
+  .file-icon {
+    font-size: 48px; /* Tamaño del ícono */
+    margin-bottom: 8px;
+    color: #e3342f; /* Color del ícono, puedes cambiarlo según el tipo de archivo */
+  }
+  
+  .file-name {
+    font-size: 14px;
+    color: #333;
+    word-wrap: break-word;
+  }
+  

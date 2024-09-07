@@ -1,24 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { TutorialService } from '../../../services/tutorial.service';
-import {  NgxExtendedPdfViewerModule,NgxExtendedPdfViewerService, pdfDefaultOptions } from 'ngx-extended-pdf-viewer';
+import { DocumentsService } from '../../../services/documents.service';
+import { NgxExtendedPdfViewerModule, NgxExtendedPdfViewerService, pdfDefaultOptions } from 'ngx-extended-pdf-viewer';
+
 
 @Component({
-  selector: 'app-example',
+  selector: 'app-visor',
   standalone: true,
-  imports: [ CommonModule,
+  imports: [
+    CommonModule,
     NgxExtendedPdfViewerModule
   ],
   providers: [NgxExtendedPdfViewerService],
-  templateUrl: './example.component.html',
-  styleUrl: './example.component.css'
+  templateUrl: './visor.component.html',
+  styleUrl: './visor.component.css'
 })
-export class ExampleComponent {
+export class VisorComponent implements OnInit {
   id: string = '';
   pdfSrc: string | ArrayBuffer = '';
-
-  constructor(private route: ActivatedRoute,private tutorialService:TutorialService) { }
+  constructor(private route: ActivatedRoute, private documentService: DocumentsService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -27,7 +28,7 @@ export class ExampleComponent {
     this.getDocument();
   }
   getDocument() {
-   this.tutorialService.getTutorial(this.id).subscribe((data:Blob) => {
+    this.documentService.download(this.id).subscribe((data: Blob) => {
       const url = window.URL.createObjectURL(data);
       this.pdfSrc = url;
     })
