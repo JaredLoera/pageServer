@@ -2,6 +2,7 @@
   "routes": [
     "/",
     "/dashboard",
+    "/dashboard/documents",
     "/dashboard/minecraft",
     "/dashboard/settings",
     "/dashboard/tutorial",
