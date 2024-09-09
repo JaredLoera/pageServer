@@ -4,13 +4,12 @@ import { Observable } from 'rxjs';
 import { Tutorial ,PDFTutorial } from '../models/tutorial';
 import { API_CONFIG, environment } from '../../environments/environment.api';
 import { AuthService } from './auth.service';
-import { blob } from 'stream/consumers';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TutorialService {
-  private baseUrl = environment.apiUrl;
+  private baseUrl = API_CONFIG.baseUrl;
 
 
   
