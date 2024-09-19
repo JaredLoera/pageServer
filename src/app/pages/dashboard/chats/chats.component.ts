@@ -2,11 +2,16 @@ import { Component,OnInit } from '@angular/core';
 import { ChatsService } from '../../../services/chats/chats.service';
 import { CommonModule } from '@angular/common';
 import { Chat } from '../../../models/chat';
+import { RouterOutlet } from '@angular/router';
+import { RouterModule } from '@angular/router';
+
 @Component({
   selector: 'app-chats',
   standalone: true,
   imports: [
-    CommonModule
+    CommonModule,
+    RouterOutlet,
+    RouterModule
   ],
   templateUrl: './chats.component.html',
   styleUrl: './chats.component.css'

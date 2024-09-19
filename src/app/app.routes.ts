@@ -18,6 +18,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard/dashboard.compon
 import { DocumentsComponent } from './pages/dashboard/documents/documents.component';
 import { VisorComponent } from './pages/dashboard/visor/visor.component';
 import { ChatsComponent } from './pages/dashboard/chats/chats.component';
+import { ChatComponent } from './pages/components/chat/chat.component';
+import { DefautlchatComponent } from './pages/components/defautlchat/defautlchat.component';
 
 export const routes: Routes = [
     {path: '', component: MainHomeComponent,children:[
@@ -35,7 +37,11 @@ export const routes: Routes = [
             {path:'tutorial/:id', component: ExampleComponent},
             {path: 'documents', component: DocumentsComponent },
             {path: 'visor/:id', component: VisorComponent},
-            {path: 'chats', component: ChatsComponent}
+            {path: 'chat', component: ChatsComponent,
+                children:[
+                    {path: ':id', component: ChatComponent},
+                ]
+            },
        ] 
     },
     {path: 'login', component:MainLoginComponent , loadChildren:()=>LoginModule, canActivate: [islogGuard]},

@@ -21,6 +21,7 @@
   .chat-list {
     flex: 1;
     overflow-y: auto;
+    margin-left: -1px;
   }
   
   .chat-item {

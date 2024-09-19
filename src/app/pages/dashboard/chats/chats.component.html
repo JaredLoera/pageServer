@@ -6,28 +6,22 @@
       </div>
       <div class="chat-list">
         <div class="chat-item" *ngFor="let chat of chats" (click)="selectChat(chat)">
-          <img [src]="" alt="Profile Picture" class="chat-avatar"/>
+            <a routerLink="{{chat.uid}}" style="text-decoration: none; color: black;">
+          @if(chat.users[0].linkavatar){
+            <img [src]="chat.users[0].linkavatar" alt="Profile Picture" class="chat-avatar">
+          }@else{
+            <img src="https://res.cloudinary.com/dikpupfzu/image/upload/v1525474876/profile_avatar.png" alt="Profile Picture" class="chat-avatar">
+          }
           <div class="chat-info">
-            <div class="chat-name">{{chat.users[1].email}}</div>
+            <div class="chat-name">{{chat.users[0].email}}</div>
             <div class="chat-preview"></div>
           </div>
+        </a>
         </div>
       </div>
     </div>
   
-    <div class="chat-window" *ngIf="selectedChat">
-      <div class="chat-header">
-        <img [src]="selectedChat.profilePicture" alt="Profile Picture" class="chat-avatar"/>
-        <h2>{{ selectedChat.name }}</h2>
-      </div>
-      <div class="chat-messages">
-        <div class="message" *ngFor="let message of selectedChat.messages">
-          <div class="message-content">{{ message.text }}</div>
-        </div>
-      </div>
-      <div class="chat-input">
-        <input type="text" placeholder="Type a message..." (keyup.enter)="sendMessage()"/>
-        <button (click)="sendMessage()">Send</button>
-      </div>
+    <div class="chat-window">
+        <router-outlet></router-outlet>
     </div>
   </div>
