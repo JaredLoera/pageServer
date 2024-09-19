@@ -17,6 +17,7 @@ import { rolGuard } from './guard/rol.guard';
 import { DashboardComponent } from './pages/dashboard/dashboard/dashboard.component';
 import { DocumentsComponent } from './pages/dashboard/documents/documents.component';
 import { VisorComponent } from './pages/dashboard/visor/visor.component';
+import { ChatsComponent } from './pages/dashboard/chats/chats.component';
 
 export const routes: Routes = [
     {path: '', component: MainHomeComponent,children:[
@@ -33,7 +34,8 @@ export const routes: Routes = [
             {path: 'minecraft', component: MinecraftComponent},
             {path:'tutorial/:id', component: ExampleComponent},
             {path: 'documents', component: DocumentsComponent },
-            {path: 'visor/:id', component: VisorComponent}
+            {path: 'visor/:id', component: VisorComponent},
+            {path: 'chats', component: ChatsComponent}
        ] 
     },
     {path: 'login', component:MainLoginComponent , loadChildren:()=>LoginModule, canActivate: [islogGuard]},

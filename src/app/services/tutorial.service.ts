@@ -10,9 +10,6 @@ import { AuthService } from './auth.service';
 })
 export class TutorialService {
   private baseUrl = API_CONFIG.baseUrl;
-
-
-  
   constructor(private http: HttpClient,private authService: AuthService) { }
   get(): Observable<Tutorial[]> {
     return this.http.get<Tutorial[]>(this.baseUrl + "tutorials",{headers:{Authorization:`Bearer ${this.authService.getToken()}`}})

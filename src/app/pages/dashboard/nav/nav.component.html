@@ -13,6 +13,12 @@
                 <span class="nav-text">Dashboard</span>
             </a>
         </li>
+        <li class="has-subnav">
+            <a routerLink="chats">
+                <i class="fa bi-chat fa-2x"></i>
+                <span class="nav-text">Mensajes</span>
+            </a>
+        </li>
        @if (user?.rolId == 1) {
         <li class="has-subnav">
             <a routerLink="users">
