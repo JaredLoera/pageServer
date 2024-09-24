@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Tutorial ,PDFTutorial } from '../models/tutorial';
+import { Tutorial ,PDFTutorial,tutorialPdf } from '../models/tutorial';
 import { API_CONFIG, environment } from '../../environments/environment.api';
 import { AuthService } from './auth.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +23,8 @@ export class TutorialService {
   }
   getTutorial(id: string): Observable<Blob> {
     return this.http.get(this.baseUrl + `tutorials/${id}`,{responseType: 'blob' ,headers:{Authorization:`Bearer ${this.authService.getToken()}`, Accept: 'application/pdf'}})
+  }
+  getDocumentData(id: string): Observable<tutorialPdf> {
+    return this.http.get<tutorialPdf>(this.baseUrl + `tutorials/${id}/pdf`,{headers:{Authorization:`Bearer ${this.authService.getToken()}`}})
   }
 }

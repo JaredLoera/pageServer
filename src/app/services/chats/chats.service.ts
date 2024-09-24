@@ -5,6 +5,7 @@ import { AuthService } from '../auth.service';
 import { io, Socket } from 'socket.io-client';
 import { API_CONFIG } from '../../../environments/environment.api';
 import { Chat } from '../../models/chat';
+import { Message } from '../../models/message';
 @Injectable({
   providedIn: 'root'
 })
@@ -27,5 +28,8 @@ export class ChatsService {
         observer.next(message);
       });
     });
+  }
+  getMessages(chatId: string): Observable<Message[]> {
+    return this.http.get<Message[]>(API_CONFIG.baseUrl + `chat/${chatId}`, { headers: { Authorization: `Bearer ${this.authService.getToken()}` } })
   }
 }

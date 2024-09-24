@@ -60,6 +60,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    justify-content: space-between; 
   }
   
   .chat-header {
@@ -71,10 +72,10 @@
   }
   
   .chat-messages {
-    flex: 1;
+    flex: 1; /* Esto permite que el área de mensajes se expanda y use el espacio disponible */
     padding: 15px;
     overflow-y: auto;
-    background-color: #fff;
+    background-color: #fff
   }
   
   .message {
@@ -94,6 +95,8 @@
     background-color: #fff;
     display: flex;
     align-items: center;
+    position: sticky; /* Se asegura de que siempre esté visible aunque haya scroll */
+    bottom: 0;
   }
   
   .chat-input input {
