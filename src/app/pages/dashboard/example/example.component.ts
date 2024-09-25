@@ -28,8 +28,8 @@ export class ExampleComponent {
     });
 
     //with this method we can get the document from the server
-   // this.getDocument();
-   this.getDataDocument();
+   this.getDocument();
+   //this.getDataDocument();
   }
   getDocument() {
    this.tutorialService.getTutorial(this.id).subscribe((data:Blob) => {
