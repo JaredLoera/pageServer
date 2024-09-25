@@ -22,7 +22,9 @@ export class TutorialService {
     return this.http.put<Tutorial>(this.baseUrl + `tutorials/${id}`, tutorial,{headers:{Authorization:`Bearer ${this.authService.getToken()}`}})
   }
   getTutorial(id: string): Observable<Blob> {
-    return this.http.get(this.baseUrl + `tutorials/${id}`,{responseType: 'blob' ,headers:{Authorization:`Bearer ${this.authService.getToken()}`, 'Content-Type': 'octet/stream','Accept': 'octet/stream'}})
+    return this.http.get(this.baseUrl + `tutorials/${id}`,{responseType: 'blob' ,headers:{ Authorization: `Bearer ${this.authService.getToken()}`,
+    'Content-Type': 'application/pdf',
+    'Accept': 'application/pdf'}})
   }
   getDocumentData(id: string): Observable<tutorialPdf> {
     return this.http.get<tutorialPdf>(this.baseUrl + `tutorials/${id}/pdf`,{headers:{Authorization:`Bearer ${this.authService.getToken()}`}})
