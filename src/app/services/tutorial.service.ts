@@ -23,7 +23,6 @@ export class TutorialService {
   }
   getTutorial(id: string): Observable<Blob> {
     return this.http.get(this.baseUrl + `tutorials/${id}`,{responseType: 'blob' ,headers:{ Authorization: `Bearer ${this.authService.getToken()}`,
-    'Content-Type': 'application/pdf',
     'Accept': 'application/pdf'}})
   }
   getDocumentData(id: string): Observable<tutorialPdf> {
