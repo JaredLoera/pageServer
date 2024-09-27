@@ -3,8 +3,10 @@
     <h2></h2>
 </div>
   <div class="chat-messages">
-    <div class="message" >
-      <div class="message-content"></div>
+    <div class="message" *ngFor="let message of messages">
+      <div class="message-content">
+        {{message.message}}
+      </div>
     </div>
   </div>
   <div class="chat-input">
