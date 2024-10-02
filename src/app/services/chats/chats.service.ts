@@ -12,7 +12,10 @@ import { Message } from '../../models/message';
 export class ChatsService {
   public socket: Socket;
   constructor(private http: HttpClient, private authService: AuthService) {
-    this.socket = io(API_CONFIG.socket);
+    this.socket = io(API_CONFIG.socket,
+      {
+        transports:['websocket']
+      });
     this.socket.emit('user_connected', authService.getProfile()?.id);
   }
   disconnect() {
