@@ -7,13 +7,17 @@
       <div class="chat-list">
         <div class="chat-item" *ngFor="let chat of chats" [routerLink]="[chat.uid]">
             <a routerLink="{{chat.uid}}" style="text-decoration: none; color: black;">
-          @if(chat.users[0].linkavatar){
-            <img [src]="chat.users[0].linkavatar" alt="Profile Picture" class="chat-avatar">
+          @if(chat.user_two.linkavatar){
+            <img [src]="chat.user_two.linkavatar" alt="Profile Picture" class="chat-avatar">
           }@else{
             <img src="https://res.cloudinary.com/dikpupfzu/image/upload/v1525474876/profile_avatar.png" alt="Profile Picture" class="chat-avatar">
           }
           <div class="chat-info">
-            <div class="chat-name">{{chat.users[0].email}}</div>
+            @if(user.id!=chat.user_one.id){
+              <div class="chat-name">{{chat.user_one.email}}</div>
+            }@else{
+              <div class="chat-name">{{chat.user_two.email}}</div>
+            }
             <div class="chat-preview"></div>
           </div>
         </a>

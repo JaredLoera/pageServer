@@ -43,3 +43,6 @@ src\environments\environment.api.ts
 # System files
 .DS_Store
 Thumbs.db
+.env
+/src/environments/*
+

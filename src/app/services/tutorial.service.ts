@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Tutorial ,PDFTutorial,tutorialPdf } from '../models/tutorial';
-import { API_CONFIG, environment } from '../../environments/environment.api';
+import { environment } from '../../environments/environment';
 import { AuthService } from './auth.service';
 
 
@@ -10,7 +10,7 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class TutorialService {
-  private baseUrl = API_CONFIG.baseUrl;
+  private baseUrl = environment.baseUrl;
   constructor(private http: HttpClient,private authService: AuthService) { }
   get(): Observable<Tutorial[]> {
     return this.http.get<Tutorial[]>(this.baseUrl + "tutorials",{headers:{Authorization:`Bearer ${this.authService.getToken()}`}})

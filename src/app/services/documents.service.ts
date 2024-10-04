@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { API_CONFIG } from '../../environments/environment.api';
+import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { Document } from '../models/documents';
 import { AuthService } from './auth.service';
@@ -11,7 +11,7 @@ import { AuthService } from './auth.service';
 export class DocumentsService {
 
   constructor(private authService:AuthService, private http:HttpClient) { }
-  private baseUrl = API_CONFIG.baseUrl;
+  private baseUrl = environment.baseUrl;
   get(): Observable<Document[]> {
     return this.http.get<Document[]>(this.baseUrl + "documents",{headers:{Authorization:`Bearer ${this.authService.getToken()}`}})
   }

@@ -4,5 +4,6 @@ export interface Chat {
     uid:       string;
     createdAt: Date;
     updatedAt: Date;
-    users:     User[];
+    user_two:      User;
+    user_one:      User;
 }

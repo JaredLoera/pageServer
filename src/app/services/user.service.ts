@@ -4,13 +4,13 @@ import { Observable } from 'rxjs';
 import { User } from '../models/user';
 import { Rol } from '../models/rol';
 import { AuthService } from './auth.service';
-import { API_CONFIG } from '../../environments/environment.api';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
- private baseUrl = API_CONFIG.baseUrl;
+ private baseUrl = environment.baseUrl;
 
   constructor(private http: HttpClient,private authService: AuthService) { }
   getUsers():Observable<User[]>{

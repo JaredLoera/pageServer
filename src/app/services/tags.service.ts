@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Tag } from '../models/tag';
-import { API_CONFIG } from '../../environments/environment.api';
+import { environment } from '../../environments/environment';
 
 
 @Injectable({
@@ -12,7 +12,7 @@ export class TagsService {
 
   constructor(private http:HttpClient) { }
 
-  baseUrl = API_CONFIG.baseUrl;
+  baseUrl = environment.baseUrl;
 
   get(): Observable<Tag[]> {
     return this.http.get<Tag[]>(this.baseUrl + 'tags');

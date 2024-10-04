@@ -1,9 +1,11 @@
 import { Component,OnInit } from '@angular/core';
-import { ChatsService } from '../../../services/chats/chats.service';
 import { CommonModule } from '@angular/common';
 import { Chat } from '../../../models/chat';
 import { RouterOutlet } from '@angular/router';
 import { RouterModule } from '@angular/router';
+import { ChatsService } from '../../../services/chats/chats.service';
+import { AuthService } from '../../../services/auth.service';
+import { User } from '../../../models/user';
 
 @Component({
   selector: 'app-chats',
@@ -18,7 +20,8 @@ import { RouterModule } from '@angular/router';
 })
 export class ChatsComponent  implements OnInit {
   chats: Chat[] = [];
-  constructor(private chatsService: ChatsService) { }
+  user: User = this.authService.getProfile()!;
+  constructor(private chatsService: ChatsService,private authService:AuthService) { }
   ngOnInit(): void {
     this.cargarChats();
     this.chatsService.onMessage().subscribe((message) => {

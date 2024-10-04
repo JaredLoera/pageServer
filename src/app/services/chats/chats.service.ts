@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth.service';
 import { io, Socket } from 'socket.io-client';
-import { API_CONFIG } from '../../../environments/environment.api';
+import { environment } from '../../../environments/environment';
 import { Chat } from '../../models/chat';
 import { Message } from '../../models/message';
 @Injectable({
@@ -12,7 +12,7 @@ import { Message } from '../../models/message';
 export class ChatsService {
   public socket: Socket;
   constructor(private http: HttpClient, private authService: AuthService) {
-    this.socket = io(API_CONFIG.socket,
+    this.socket = io(environment.socket,
       {
         transports:['websocket']
       });
@@ -22,7 +22,7 @@ export class ChatsService {
     this.socket.disconnect();
   }
   getChats(): Observable<Chat[]> {
-    return this.http.get<Chat[]>(API_CONFIG.baseUrl + 'chats', { headers: { Authorization: `Bearer ${this.authService.getToken()}` } })
+    return this.http.get<Chat[]>(environment.baseUrl + 'chats', { headers: { Authorization: `Bearer ${this.authService.getToken()}` } })
   }
 
   onMessage(): Observable<any> {
@@ -33,6 +33,9 @@ export class ChatsService {
     });
   }
   getMessages(chatId: string): Observable<Message[]> {
-    return this.http.get<Message[]>(API_CONFIG.baseUrl + `chat/${chatId}`, { headers: { Authorization: `Bearer ${this.authService.getToken()}` } })
+    return this.http.get<Message[]>(environment.baseUrl + `chat/${chatId}`, { headers: { Authorization: `Bearer ${this.authService.getToken()}` } })
+  }
+  sendMessage(chatId: string, message: string):Observable<Message> {
+    return this.http.post<Message>(environment.baseUrl + `chat/send/${chatId}`, { "message":message }, { headers: { Authorization: `Bearer ${this.authService.getToken()}` } })
   }
 }
