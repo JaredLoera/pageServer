@@ -3,38 +3,39 @@ const path = require('path');
 const crypto = require('crypto')
 const successColor = '\x1b[32m%s\x1b[0m';
 const checkSign = '\u{2705}';
-const envList = ['development', ''];
+const envList = ['development', 'production'];
 
-// Función para generar una clave secreta
 function generateSecretKey(length = 32) {
     return crypto.randomBytes(length).toString('hex');
   }
   
   // Función para generar un IV aleatorio
   function generateIV(length = 16) {
-    return crypto.randomBytes(length).toString('hex'); // 16 bytes para el IV
+    return crypto.randomBytes(length).toString('hex'); 
   }
 
   const secretKey = generateSecretKey();
     const iv = generateIV();
-// Generar el contenido de los archivos de entorno para cada ambiente
 envList.forEach(en => {
-  const envPath = en !== 'local' ? `.${en}` : '';
+  const envPath = en === 'production' ? '' : `.${en}`;
+  const baseUrl = en === 'development' ? 'http://localhost:3333/api/' : 'https://servertorreon.ddns.net/api/';
+  const socket = en === 'development' ? 'http://localhost:3000/' : 'https://servertorreon.ddns.net/';
 
-  // Crear el archivo con APP_KEY e IV
   const envFile = `export const environment = {
-    baseUrl: 'https://servertorreon.ddns.net/api/',
-    socket: 'https://servertorreon.ddns.net/',
+    baseUrl: '${baseUrl}',
+    socket: '${socket}',
     production: ${en !== 'local'},  // Solo local no es de producción
     appKey: '${secretKey}',
     iv: '${iv}'
   };
 `;
+  const targetDir = path.join(__dirname, 'src/environments');
 
-  // Definir la ruta donde se guardarán los archivos de entorno
   const targetPath = path.join(__dirname, `src/environments/environment${envPath}.ts`);
 
-  // Escribir el archivo de entorno
+  if(!(fs.existsSync(targetDir))){
+    fs.mkdirSync(path.join(__dirname, 'src/environments'));
+  }
   fs.writeFile(targetPath, envFile, (err) => {
     if (err) {
       console.error(err);
