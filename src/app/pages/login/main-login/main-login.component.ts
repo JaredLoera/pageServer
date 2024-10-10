@@ -8,6 +8,10 @@ import { Token } from '../../../models/token';
 import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
 import { UserService } from '../../../services/user.service';
+import { catchError, EMPTY, throwError } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
+import { ValidMessage } from '../../../models/validError';
+
 
 @Component({
   selector: 'app-main-login',
@@ -22,6 +26,7 @@ import { UserService } from '../../../services/user.service';
 })
 export class MainLoginComponent {
   public userForm: FormGroup;
+  public unathorized = false;
   public user: User = {
     email: '',
     password: ''
@@ -36,12 +41,19 @@ export class MainLoginComponent {
   
   submitlogin(){
     this.user = this.userForm.value;
-    this.authService.login(this.user).subscribe((token:Token)=>{
+    this.authService.login(this.user).pipe(
+      catchError((error: HttpErrorResponse) => {
+        if(error.status === 401){
+          this.unathorized = true;
+        }
+        return EMPTY;
+      })
+    ).subscribe((token:Token)=>{
       this.authService.setToken(token);
       this.userService.getProfile().subscribe((user:User)=>{
         this.authService.setProfile(user);
+        this.router.navigate(['/dashboard']);
       })
     })
-    this.router.navigate(['/dashboard']);
   }
 }
