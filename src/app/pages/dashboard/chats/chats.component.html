@@ -1,30 +1,28 @@
-
-<div class="chat-app">
-    <div class="chat-sidebar">
-      <div class="chat-header">
-        <h2>Chats</h2>
-      </div>
-      <div class="chat-list">
-        <div class="chat-item" *ngFor="let chat of chats" [routerLink]="[chat.uid]">
-            <a routerLink="{{chat.uid}}" style="text-decoration: none; color: black;">
-          @if(chat.user_two.linkavatar){
-            <img [src]="chat.user_two.linkavatar" alt="Profile Picture" class="chat-avatar">
-          }@else{
-            <img src="https://res.cloudinary.com/dikpupfzu/image/upload/v1525474876/profile_avatar.png" alt="Profile Picture" class="chat-avatar">
-          }
-          <div class="chat-info">
-            @if(user.id!=chat.user_one.id){
-              <div class="chat-name">{{chat.user_one.email}}</div>
-            }@else{
-              <div class="chat-name">{{chat.user_two.email}}</div>
-            }
-            <div class="chat-preview"></div>
+<div class="app-container">
+  <nav class="navbar">
+      <h1>Mensajeria Secreta</h1>
+  </nav>
+  <div class="chat-app">
+      <div class="chat-sidebar">
+          <div class="chat-header">
+              <h2>Bandeja de entrada</h2>
           </div>
-        </a>
-        </div>
+          <div class="chat-list">
+              <div class="chat-item" *ngFor="let chat of chats" [routerLink]="[chat.uid]">
+                  <a routerLink="{{chat.uid}}" style="text-decoration: none; color: black;">
+                      <img [src]="chat.user_two.linkavatar || 'https://res.cloudinary.com/dikpupfzu/image/upload/v1525474876/profile_avatar.png'" alt="Profile Picture" class="chat-avatar">
+                      <div class="chat-info">
+                          <div class="chat-name">{{chat.user_one.email}}</div>
+                          <div class="chat-preview"></div>
+                      </div>
+                  </a>
+              </div>
+          </div>
       </div>
-    </div>
-    <div class="chat-window">
+      <div class="chat-window">
+        <h3><p>Esta aplicación es lo mejor en cuanto a seguridad de los mensajes.</p></h3>
+        <i class="bi bi-chat"></i>
         <router-outlet></router-outlet>
     </div>
   </div>
+</div>
