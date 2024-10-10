@@ -13,6 +13,7 @@ export class UserService {
  private baseUrl = environment.baseUrl;
 
   constructor(private http: HttpClient,private authService: AuthService) { }
+  
   getUsers():Observable<User[]>{
     return this.http.get<User[]>(this.baseUrl + "users",{headers:{Authorization:`Bearer ${this.authService.getToken()}`}})
   }
@@ -26,7 +27,7 @@ export class UserService {
     return this.http.put<User>(this.baseUrl + "profile",user,{headers:{Authorization:`Bearer ${this.authService.getToken()}`}})
   }
   createUser(user: User):Observable<User>{
-    return this.http.post<User>(this.baseUrl + "users",user,{headers:{Authorization:`Bearer ${this.authService.getToken()}`}})
+    return this.http.post<User>(this.baseUrl + "register",user,{headers:{Authorization:`Bearer ${this.authService.getToken()}`}})
   }
   getPublicProfiles():Observable<User[]>{
     return this.http.get<User[]>(this.baseUrl + "public-profiles")

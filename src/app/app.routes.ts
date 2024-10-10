@@ -19,7 +19,7 @@ import { DocumentsComponent } from './pages/dashboard/documents/documents.compon
 import { VisorComponent } from './pages/dashboard/visor/visor.component';
 import { ChatsComponent } from './pages/dashboard/chats/chats.component';
 import { ChatComponent } from './pages/components/chat/chat.component';
-import { DefautlchatComponent } from './pages/components/defautlchat/defautlchat.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 export const routes: Routes = [
     {path: '', component: MainHomeComponent,children:[
@@ -45,6 +45,7 @@ export const routes: Routes = [
        ] 
     },
     {path: 'login', component:MainLoginComponent , loadChildren:()=>LoginModule, canActivate: [islogGuard]},
+    {path: 'register', component:RegisterComponent,canActivate: [islogGuard]},
     {path: '**', component: MainNotfoundComponent, loadChildren: () => NotfoundpageModule}
 ];
 

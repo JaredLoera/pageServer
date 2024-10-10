@@ -171,3 +171,22 @@ p {
 .text--center {
   text-align: center;
 }
+.tooltip {
+  background-color: #ea4c88;
+  color: white;
+  padding: 0.5rem;
+  position: absolute;
+  right: -200px;
+  top: 10px;
+  border-radius: 0.25rem;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+.form__field {
+  position: relative;
+}
+
+/* Input styles */
+.form__input {
+  padding-right: 140px; /* Provide space for the tooltip */
+}
